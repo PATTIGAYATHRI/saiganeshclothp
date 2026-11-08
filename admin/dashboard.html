@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Sai Ganesh Clothes Store</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff8ed;
+            color: #421c20;
+        }
+
+        header {
+            background: #641c27;
+            color: #f5d58a;
+            padding: 22px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 23px;
+        }
+
+        header p {
+            color: white;
+            margin-top: 7px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 25px 15px;
+        }
+
+        .welcome {
+            margin-bottom: 25px;
+        }
+
+        .welcome h2 {
+            color: #641c27;
+            margin-bottom: 8px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #00000015;
+            border-left: 5px solid #c49a45;
+        }
+
+        .card h3 {
+            color: #641c27;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #777;
+        }
+
+        .form-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #00000015;
+            margin-bottom: 25px;
+        }
+
+        .form-box h2 {
+            color: #641c27;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d6bd91;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .checkbox-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .checkbox-row label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin: 0;
+        }
+
+        .checkbox-row input {
+            width: auto;
+        }
+
+        button {
+            background: #641c27;
+            color: #f5d58a;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 18px;
+        }
+
+        button:hover {
+            background: #842c38;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .product-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px #00000015;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 7px;
+        }
+
+        .product-item h3 {
+            margin: 10px 0;
+            color: #641c27;
+        }
+
+        .delete-btn {
+            background: #b42323;
+            color: white;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            color: #641c27;
+        }
+
+        #message {
+            margin-top: 15px;
+            color: #218c4a;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>SAI GANESH CLOTHES STORE</h1>
+        <p>Admin Dashboard</p>
+    </header>
+
+    <main class="container">
+
+        <div class="welcome">
+            <h2>Welcome, Store Admin!</h2>
+            <p>Manage your products and collections here.</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="card">
+                <h3>Product Management</h3>
+                <p>Add, edit and manage products.</p>
+            </div>
+
+            <div class="card">
+                <h3>Categories</h3>
+                <p>Manage your clothing categories.</p>
+            </div>
+
+            <div class="card">
+                <h3>Special Offers</h3>
+                <p>Manage your store offers.</p>
+            </div>
+        </div>
+
+        <section class="form-box">
+            <h2>Add New Product</h2>
+
+            <form id="productForm">
+
+                <label>Product Name</label>
+                <input type="text" id="productName"
+                    placeholder="Enter product name" required>
+
+                <label>Category</label>
+                <select id="productCategory" required>
+                    <option value="">Select Category</option>
+                    <option value="Sarees">Sarees</option>
+                    <option value="Women Wear">Women Wear</option>
+                    <option value="Dress Materials">Dress Materials</option>
+                    <option value="Kids Wear">Kids Wear</option>
+                    <option value="Ornaments">Ornaments</option>
+                </select>
+
+                <label>Product Photos</label>
+                <input type="file" id="productPhotos"
+                    accept="image/*" multiple required>
+
+                <label>Price</label>
+                <input type="number" id="productPrice"
+                    placeholder="Enter price">
+
+                <label>Description</label>
+                <textarea id="productDescription"
+                    placeholder="Enter product description"></textarea>
+
+                <label>Available Sizes</label>
+                <input type="text" id="productSizes"
+                    placeholder="Example: S, M, L, XL">
+
+                <label>Available Colours</label>
+                <input type="text" id="productColours"
+                    placeholder="Example: Red, Blue, Green">
+
+                <label>Availability</label>
+                <select id="productAvailability">
+                    <option value="Available">Available</option>
+                    <option value="Sold Out">Sold Out</option>
+                </select>
+
+                <div class="checkbox-row">
+                    <label>
+                        <input type="checkbox" id="showPrice" checked>
+                        Show Price
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="isNew">
+                        New Arrival
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="isFeatured">
+                        Featured Product
+                    </label>
+                </div>
+
+                <button type="submit">Add Product</button>
+
+                <p id="message"></p>
+
+            </form>
+        </section>
+
+        <section class="form-box">
+            <h2>Manage Products</h2>
+            <div id="productList" class="product-list">
+                <p>No products added yet.</p>
+            </div>
+        </section>
+        <section class="form-box">
+
+          <h2>Manage Categories</h2>
+
+            <form id="categoryForm">
+
+        <label>New Category Name</label>
+
+        <input
+            type="text"
+            id="categoryName"
+            placeholder="Example: Handbags"
+            required>
+
+        <button type="submit">Add Category</button>
+
+        <p id="categoryMessage"></p>
+
+    </form>
+
+    <h3>Existing Categories</h3>
+
+    <div id="categoryList">
+        Loading categories...
+    </div>
+
+</section>
+
+        <a href="../index.html" class="back-link">
+            ← Back to Customer Website
+        </a>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+
+    <script>
+        async function checkAdminLogin() {
+    const { data, error } = await supabaseClient.auth.getSession();
+
+    const ADMIN_UID = "b46dc48a-2995-4655-8e52-016d70390a78";
+
+    if (
+        error ||
+        !data.session ||
+        data.session.user.id !== ADMIN_UID
+    ) {
+        window.location.href = "admin.html";
+    }
+}
+
+checkAdminLogin();
+    </script>
+
+    <script src="product.js"></script>
+</body>
+</html>
