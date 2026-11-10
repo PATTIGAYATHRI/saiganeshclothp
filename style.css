@@ -66,19 +66,16 @@ nav a:hover {
 
 /* Logo section */
 .hero-logo {
-    min-height: 260px;
-    background: #fffaf0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 25px;
+    width: 100%;
+    padding: 20px 0;
 }
 
 .hero-logo img {
-    width: 260px;
-    max-width: 85%;
+    display: block;
+    width: 95%;
+    max-width: 1200px;
     height: auto;
-    object-fit: contain;
+    margin: 0 auto;
     animation: logoAppear 1.2s ease;
 }
 
